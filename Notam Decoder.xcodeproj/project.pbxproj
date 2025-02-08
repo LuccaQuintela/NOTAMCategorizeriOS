@@ -171,7 +171,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					7C19B15D2CED1E570090C339 = {
 						CreatedOnToolsVersion = 16.1;
@@ -303,6 +303,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -364,6 +365,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -391,6 +393,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Notam Decoder/Notam_Decoder.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Notam Decoder/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -407,6 +410,40 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
@@ -428,6 +465,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Notam Decoder/Notam_Decoder.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Notam Decoder/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -444,6 +482,40 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
@@ -463,6 +535,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
@@ -485,6 +558,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
@@ -506,6 +580,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
@@ -527,6 +602,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
