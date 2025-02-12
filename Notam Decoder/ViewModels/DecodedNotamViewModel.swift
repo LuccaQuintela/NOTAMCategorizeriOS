@@ -25,12 +25,22 @@ class DecodedNotamViewModel: ObservableObject {
         dataService.insertNotam(notam)
     }
     
-    func categorize(_ notam: Notam) -> String? {
-        // TODO: incorporate the logic of the actual model
+    func categorize(_ notam: Notam) -> String? {        
+        let qcode = decoder.categorize(notam.content, resultCount: 1)
         
-        let qcode = decoder.categorize(notam.content)
+        guard let qcode else {
+            return nil
+        }
+        
+        guard !qcode.isEmpty else {
+            return nil
+        }
+        
+        let result = qcode[0]
         
         Logger.log(tag: .success, "Notam successfully categorized")
-        return qcode
+        Logger.log(tag: .success, "\(result.label): Score of \(result.score)")
+        
+        return result.label
     }
 }

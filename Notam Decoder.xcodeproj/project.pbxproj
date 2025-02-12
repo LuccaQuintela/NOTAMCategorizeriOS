@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		19528F17AED67D580135DC24 /* Pods_Notam_Decoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26987A090574A5372FA12B /* Pods_Notam_Decoder.framework */; };
+		4F3170D7B12BCF52B9DB218E /* Pods_Notam_Decoder_Notam_DecoderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C38307C3462BBABE42EF2B5 /* Pods_Notam_Decoder_Notam_DecoderUITests.framework */; };
+		6997D270B8C4D316FEC12739 /* Pods_Notam_DecoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98D85B0016576963057560 /* Pods_Notam_DecoderTests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7C19B1702CED1E590090C339 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +30,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00836DA14F8CB8784256A8E6 /* Pods-Notam DecoderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam DecoderTests.release.xcconfig"; path = "Target Support Files/Pods-Notam DecoderTests/Pods-Notam DecoderTests.release.xcconfig"; sourceTree = "<group>"; };
+		028B3450300A7524897BA6AA /* Pods-Notam Decoder-Notam DecoderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam Decoder-Notam DecoderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Notam Decoder-Notam DecoderUITests/Pods-Notam Decoder-Notam DecoderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0FC6BE7A1A3C773AF1DBFE4C /* Pods-Notam DecoderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam DecoderTests.debug.xcconfig"; path = "Target Support Files/Pods-Notam DecoderTests/Pods-Notam DecoderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C38307C3462BBABE42EF2B5 /* Pods_Notam_Decoder_Notam_DecoderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notam_Decoder_Notam_DecoderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D98D85B0016576963057560 /* Pods_Notam_DecoderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notam_DecoderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E26987A090574A5372FA12B /* Pods_Notam_Decoder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notam_Decoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C19B15E2CED1E570090C339 /* Notam Decoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notam Decoder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C19B16F2CED1E590090C339 /* Notam DecoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Notam DecoderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C19B1792CED1E590090C339 /* Notam DecoderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Notam DecoderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		830EBD48943085B26BE47201 /* Pods-Notam Decoder-Notam DecoderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam Decoder-Notam DecoderUITests.release.xcconfig"; path = "Target Support Files/Pods-Notam Decoder-Notam DecoderUITests/Pods-Notam Decoder-Notam DecoderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8A9578774C9676C457653F1F /* Pods-Notam Decoder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam Decoder.release.xcconfig"; path = "Target Support Files/Pods-Notam Decoder/Pods-Notam Decoder.release.xcconfig"; sourceTree = "<group>"; };
+		AAB13F7EF6223EAC6E7FF2FD /* Pods-Notam Decoder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notam Decoder.debug.xcconfig"; path = "Target Support Files/Pods-Notam Decoder/Pods-Notam Decoder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19528F17AED67D580135DC24 /* Pods_Notam_Decoder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6997D270B8C4D316FEC12739 /* Pods_Notam_DecoderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +83,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F3170D7B12BCF52B9DB218E /* Pods_Notam_Decoder_Notam_DecoderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E22E27C2F63F4BB2237F60C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E26987A090574A5372FA12B /* Pods_Notam_Decoder.framework */,
+				1C38307C3462BBABE42EF2B5 /* Pods_Notam_Decoder_Notam_DecoderUITests.framework */,
+				5D98D85B0016576963057560 /* Pods_Notam_DecoderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C19B1552CED1E570090C339 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +107,8 @@
 				7C19B1722CED1E590090C339 /* Notam DecoderTests */,
 				7C19B17C2CED1E590090C339 /* Notam DecoderUITests */,
 				7C19B15F2CED1E570090C339 /* Products */,
+				CC6D14BB1B9C80BE036168D6 /* Pods */,
+				3E22E27C2F63F4BB2237F60C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +122,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CC6D14BB1B9C80BE036168D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAB13F7EF6223EAC6E7FF2FD /* Pods-Notam Decoder.debug.xcconfig */,
+				8A9578774C9676C457653F1F /* Pods-Notam Decoder.release.xcconfig */,
+				028B3450300A7524897BA6AA /* Pods-Notam Decoder-Notam DecoderUITests.debug.xcconfig */,
+				830EBD48943085B26BE47201 /* Pods-Notam Decoder-Notam DecoderUITests.release.xcconfig */,
+				0FC6BE7A1A3C773AF1DBFE4C /* Pods-Notam DecoderTests.debug.xcconfig */,
+				00836DA14F8CB8784256A8E6 /* Pods-Notam DecoderTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +142,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C19B1832CED1E590090C339 /* Build configuration list for PBXNativeTarget "Notam Decoder" */;
 			buildPhases = (
+				81CAC6F7A7986D5E4D70469A /* [CP] Check Pods Manifest.lock */,
 				7C19B15A2CED1E570090C339 /* Sources */,
 				7C19B15B2CED1E570090C339 /* Frameworks */,
 				7C19B15C2CED1E570090C339 /* Resources */,
@@ -111,8 +155,6 @@
 				7C19B1602CED1E570090C339 /* Notam Decoder */,
 			);
 			name = "Notam Decoder";
-			packageProductDependencies = (
-			);
 			productName = "Notam Decoder";
 			productReference = 7C19B15E2CED1E570090C339 /* Notam Decoder.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +163,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C19B1862CED1E590090C339 /* Build configuration list for PBXNativeTarget "Notam DecoderTests" */;
 			buildPhases = (
+				605829EA0EF7F31407F40656 /* [CP] Check Pods Manifest.lock */,
 				7C19B16B2CED1E590090C339 /* Sources */,
 				7C19B16C2CED1E590090C339 /* Frameworks */,
 				7C19B16D2CED1E590090C339 /* Resources */,
@@ -134,8 +177,6 @@
 				7C19B1722CED1E590090C339 /* Notam DecoderTests */,
 			);
 			name = "Notam DecoderTests";
-			packageProductDependencies = (
-			);
 			productName = "Notam DecoderTests";
 			productReference = 7C19B16F2CED1E590090C339 /* Notam DecoderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -144,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C19B1892CED1E590090C339 /* Build configuration list for PBXNativeTarget "Notam DecoderUITests" */;
 			buildPhases = (
+				EE32F5A584047EED9A63A3DE /* [CP] Check Pods Manifest.lock */,
 				7C19B1752CED1E590090C339 /* Sources */,
 				7C19B1762CED1E590090C339 /* Frameworks */,
 				7C19B1772CED1E590090C339 /* Resources */,
@@ -157,8 +199,6 @@
 				7C19B17C2CED1E590090C339 /* Notam DecoderUITests */,
 			);
 			name = "Notam DecoderUITests";
-			packageProductDependencies = (
-			);
 			productName = "Notam DecoderUITests";
 			productReference = 7C19B1792CED1E590090C339 /* Notam DecoderUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -175,6 +215,7 @@
 				TargetAttributes = {
 					7C19B15D2CED1E570090C339 = {
 						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1620;
 					};
 					7C19B16E2CED1E590090C339 = {
 						CreatedOnToolsVersion = 16.1;
@@ -231,6 +272,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		605829EA0EF7F31407F40656 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notam DecoderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81CAC6F7A7986D5E4D70469A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notam Decoder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE32F5A584047EED9A63A3DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notam Decoder-Notam DecoderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C19B15A2CED1E570090C339 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,7 +386,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -305,6 +415,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				"DEVELOPMENT_TEAM[sdk=iphone*]" = 4Z2VMU7RKL;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -326,6 +437,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -338,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -367,6 +479,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				"DEVELOPMENT_TEAM[sdk=iphone*]" = 4Z2VMU7RKL;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -381,21 +494,28 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		7C19B1842CED1E590090C339 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB13F7EF6223EAC6E7FF2FD /* Pods-Notam Decoder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Notam Decoder/Notam_Decoder.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Notam Decoder/Preview Content\"";
+				DEVELOPMENT_TEAM = 4Z2VMU7RKL;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -410,47 +530,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Notam Decoder/MachineLearning/Models/Notam Decoder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.1;
@@ -459,15 +548,21 @@
 		};
 		7C19B1852CED1E590090C339 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9578774C9676C457653F1F /* Pods-Notam Decoder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Notam Decoder/Notam_Decoder.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Notam Decoder/Preview Content\"";
+				DEVELOPMENT_TEAM = 4Z2VMU7RKL;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -482,47 +577,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-					"$(PROJECT_DIR)/Notam\\ Decoder/Frameworks/libtorch/lib",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Notam Decoder/MachineLearning/Models/Notam Decoder-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.1;
@@ -531,8 +594,10 @@
 		};
 		7C19B1872CED1E590090C339 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FC6BE7A1A3C773AF1DBFE4C /* Pods-Notam DecoderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -554,8 +619,10 @@
 		};
 		7C19B1882CED1E590090C339 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00836DA14F8CB8784256A8E6 /* Pods-Notam DecoderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -577,7 +644,10 @@
 		};
 		7C19B18A2CED1E590090C339 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028B3450300A7524897BA6AA /* Pods-Notam Decoder-Notam DecoderUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_IDENTITY = "Apple Development: penguinpetturtle@gmail.com (TN8JJ4J25J)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -599,7 +669,10 @@
 		};
 		7C19B18B2CED1E590090C339 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 830EBD48943085B26BE47201 /* Pods-Notam Decoder-Notam DecoderUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_IDENTITY = "Apple Development: penguinpetturtle@gmail.com (TN8JJ4J25J)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
