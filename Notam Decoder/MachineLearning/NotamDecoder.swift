@@ -21,6 +21,8 @@ protocol NotamDecoder {
 protocol SequentialDecoder: NotamDecoder {
     var subjectModule: NLPTorchModule { get set }
     var statusModule: NLPTorchModule { get set }
+    var subjectLabels: [String] { get set }
+    var statusLabels: [String] { get }
 }
 
 protocol SingularDecoder: NotamDecoder {

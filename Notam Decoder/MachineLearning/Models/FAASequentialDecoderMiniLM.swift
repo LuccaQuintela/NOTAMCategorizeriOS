@@ -33,7 +33,7 @@ class FAASequentialDecoderMiniLM: SequentialDecoder {
         
         let module = NLPTorchModule(fileAtPath: filePath)
         if let module {
-            Logger.log(tag: .success, "STATUS MODEL successfully loaded")
+            Logger.log(tag: .success, "Status model successfully loaded")
             return module
         }
         fatalError("CANNOT INSTANTIATE STATUS MODEL")
@@ -41,14 +41,29 @@ class FAASequentialDecoderMiniLM: SequentialDecoder {
     
     var subjectLabels: [String] = {
         guard let filePath = Bundle.main.path(forResource: "subjectLabels", ofType: "txt") else {
-            Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD LABELS")
+            Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD SUBJECT LABELS")
             return []
         }
         
         do {
             let labels = try String(contentsOfFile: filePath, encoding: .utf8)
-            Logger.log(tag: .success, "Labels successfully loaded")
-            Logger.log(tag: .success, labels)
+            Logger.log(tag: .success, "Subject labels successfully loaded")
+            return labels.components(separatedBy: .newlines)
+        }
+        catch {
+            return []
+        }
+    }()
+    
+    var statusLabels: [String] = {
+        guard let filePath = Bundle.main.path(forResource: "statusLabels", ofType: "txt") else {
+            Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD STATUS LABELS")
+            return []
+        }
+        
+        do {
+            let labels = try String(contentsOfFile: filePath, encoding: .utf8)
+            Logger.log(tag: .success, "Status labels successfully loaded")
             return labels.components(separatedBy: .newlines)
         }
         catch {
