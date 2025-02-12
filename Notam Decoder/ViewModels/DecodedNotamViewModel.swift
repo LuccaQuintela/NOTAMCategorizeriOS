@@ -9,7 +9,8 @@ import Foundation
 
 class DecodedNotamViewModel: ObservableObject {
     private let dataService: DatabaseManager
-    private let decoder: NotamDecoder
+    private var decoder: (any NotamDecoder)? = nil
+    
     
     @MainActor
     static let shared = DecodedNotamViewModel()
@@ -17,7 +18,17 @@ class DecodedNotamViewModel: ObservableObject {
     @MainActor
     private init() {
         dataService = DatabaseManager.shared
-        decoder = NotamDecoder.shared
+        updateModelSelection()
+    }
+    
+    @MainActor
+    private func updateModelSelection() {
+        switch ChosenModel.shared.model {
+        case .FAASequentialDecoderMiniLM:
+            decoder = FAASequentialDecoderMiniLM.shared
+        case nil:
+            decoder = nil
+        }
     }
     
     func saveNotam(_ notam: Notam) {
@@ -26,6 +37,11 @@ class DecodedNotamViewModel: ObservableObject {
     }
     
     func categorize(_ notam: Notam) -> String? {        
+        guard let decoder else {
+            Logger.log(tag: .error, "No Decoder Selected")
+            return nil
+        }
+        
         let qcode = decoder.categorize(notam.content, resultCount: 1)
         
         guard let qcode else {
