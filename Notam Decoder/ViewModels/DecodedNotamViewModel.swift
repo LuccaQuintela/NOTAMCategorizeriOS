@@ -23,12 +23,7 @@ class DecodedNotamViewModel: ObservableObject {
     
     @MainActor
     private func updateModelSelection() {
-        switch ChosenModel.shared.model {
-        case .FAASequentialDecoderMiniLM:
-            decoder = FAASequentialDecoderMiniLM.shared
-        case nil:
-            decoder = nil
-        }
+        decoder = ChosenModel.shared.getModel()
     }
     
     func saveNotam(_ notam: Notam) {
@@ -42,17 +37,11 @@ class DecodedNotamViewModel: ObservableObject {
             return nil
         }
         
-        let qcode = decoder.categorize(notam.content, resultCount: 1)
+        let result = decoder.categorize(notam.content)
         
-        guard let qcode else {
+        guard let result else {
             return nil
         }
-        
-        guard !qcode.isEmpty else {
-            return nil
-        }
-        
-        let result = qcode[0]
         
         Logger.log(tag: .success, "Notam successfully categorized")
         Logger.log(tag: .success, "\(result.label): Score of \(result.score)")

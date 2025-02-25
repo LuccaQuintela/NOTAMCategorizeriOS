@@ -49,7 +49,6 @@ struct DecodedNotamView: View {
                 
                 if (!notam.isSaved) {
                     Button(action:{
-                        notam.isSaved = true
                         decodedNotamViewModel.saveNotam(notam)
                     }) {
                         Text("Save NOTAM")

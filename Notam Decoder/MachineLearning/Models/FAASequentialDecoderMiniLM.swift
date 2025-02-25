@@ -74,14 +74,18 @@ class FAASequentialDecoderMiniLM: SequentialDecoder {
     @MainActor
     private init() {}
     
-    func categorize(_ input: String, resultCount: Int) -> [InferenceResult]? {
+    func categorize(_ input: String) -> InferenceResult? {
         if isRunning {
             return nil
         }
         isRunning = true
         Logger.log(tag: .debug, "categorizing: \(input)")
         
-        guard let subjectOutput = subjectModule.predict(text: input) else {
+        var encodedInput = String(describing: input.cString(using: String.Encoding.utf8))
+        let remove: Set<Character> = ["\n"]
+        encodedInput.removeAll(where: { remove.contains($0) })
+        
+        guard let subjectOutput = subjectModule.predict(text: encodedInput) else {
             Logger.log(tag: .error, "Subject outputs could not be predicted")
             isRunning = false
             return nil
@@ -96,10 +100,11 @@ class FAASequentialDecoderMiniLM: SequentialDecoder {
             return nil
         }
         isRunning = false
-        return topK(scores: completeOutput, labels: subjectLabels, count: resultCount)
+//        topK(scores: completeOutput, labels: subjectLabels)
+        return nil
     }
     
-    func topK(scores: [NSNumber], labels: [String], count: Int) -> [InferenceResult] {
+    func topK(scores: [NSNumber], labels: [String], count: Int = 1) -> [InferenceResult] {
         let zippedResults = zip(labels.indices, scores)
         let sortedResults = zippedResults.sorted{ $0.1.floatValue > $1.1.floatValue }.prefix(count)
         return sortedResults.map { InferenceResult(score: $0.1.floatValue, label: labels[$0.0]) }
