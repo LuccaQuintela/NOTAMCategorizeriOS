@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreML
+import Tokenizers
 
 protocol NotamDecoder {
     @MainActor
@@ -18,8 +19,10 @@ protocol NotamDecoder {
 protocol MLModelNotamDecoder: NotamDecoder {
     associatedtype ModelType
     var model: ModelType? { get }
+    var tokenizer: (any Tokenizer)? { get }
+    var modelName: String { get }
     
-    func convertStringToMLArray(_ input: String) -> (MLMultiArray, MLMultiArray)
+    func convertStringToMLArray(_ input: String) throws -> (MLMultiArray, MLMultiArray)
     func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult
 }
 
@@ -49,4 +52,8 @@ struct InferenceResult {
 enum Model {
     case FAASequentialDecoderMiniLM
     case EvanModel
+}
+
+enum MLError: Error {
+    case ProcessingError
 }
