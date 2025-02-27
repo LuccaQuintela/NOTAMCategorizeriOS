@@ -58,7 +58,6 @@ class EvanModel: MLModelNotamDecoder {
             Logger.log(tag: .error, "EITHER INPUTIDS OR ATTENTIONMASK NIL: COULD PROCESS INPUT")
             throw MLError.ProcessingError
         }
-        
         return (inputIds, attentionMask)
     }
     
@@ -82,7 +81,7 @@ class EvanModel: MLModelNotamDecoder {
         
         guard let multiArray = try? MLMultiArray(shape: [dimensions.0, dimensions.1] as [NSNumber],
                                                  dataType: .float32) else {
-            Logger.log(tag: .error, "MULTIARRAY COULD NOT BE INSTANTIATED")
+            Logger.log(tag: .error, "INPUTIDS MULTIARRAY COULD NOT BE INSTANTIATED")
             return nil
         }
         
@@ -99,7 +98,23 @@ class EvanModel: MLModelNotamDecoder {
         return multiArray
     }
     
+    /* TODO: The attention mask should tell you which of the tokens in the input_ids array
+     * TODO: should actually be considered. 1 means yes, 0 means no.
+     * TODO: At the moment, this returns entirely 1s. It needs to be modified so that it returns
+     * TODO: an accurate masking.
+     */
+    
     func createAttentionMask() -> MLMultiArray? {
-        return MLMultiArray()
+        guard let multiArray = try? MLMultiArray(shape: [attentionMaskSize.0, attentionMaskSize.1] as [NSNumber],
+                                                 dataType: .float32) else {
+            Logger.log(tag: .error, "ATTENTION MASK MULTIARRAY COULD NOT BE INSTANTIATED")
+            return nil
+        }
+        
+        for index in 0..<attentionMaskSize.1 {
+            multiArray[index] = 1
+        }
+        
+        return multiArray
     }
 }
