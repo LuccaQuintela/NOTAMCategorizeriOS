@@ -24,7 +24,8 @@ class ChosenModel {
     public func getModel() -> (any NotamDecoder)? {
         switch model {
         case .FAASequentialDecoderMiniLM:
-            return FAASequentialDecoderMiniLM.shared
+            return EvanModel.shared
+//            return FAASequentialDecoderMiniLM.shared
         case .EvanModel:
             return EvanModel.shared
         case nil:

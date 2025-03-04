@@ -13,7 +13,7 @@ protocol NotamDecoder {
     @MainActor
     static var shared: NotamDecoder { get }
     
-    func categorize(_ input: String) -> InferenceResult?
+    func categorize(_ input: String) throws -> InferenceResult
 }
 
 protocol MLModelNotamDecoder: NotamDecoder {
@@ -21,6 +21,8 @@ protocol MLModelNotamDecoder: NotamDecoder {
     var model: ModelType? { get }
     var tokenizer: (any Tokenizer)? { get }
     var modelName: String { get }
+    var inputSize: (Int, Int) { get }
+    var outputSize: (Int, Int) { get }
     
     func convertStringToMLArray(_ input: String) throws -> (MLMultiArray, MLMultiArray)
     func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult
@@ -55,5 +57,7 @@ enum Model {
 }
 
 enum MLError: Error {
+    case VoidTokenizer
     case ProcessingError
+    case VoidModel
 }

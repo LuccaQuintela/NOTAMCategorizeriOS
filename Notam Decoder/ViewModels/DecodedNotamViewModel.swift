@@ -37,15 +37,14 @@ class DecodedNotamViewModel: ObservableObject {
             return nil
         }
         
-        let result = decoder.categorize(notam.content)
-        
-        guard let result else {
+        do {
+            let result = try decoder.categorize(notam.content)
+            Logger.log(tag: .success, "Notam successfully categorized")
+            Logger.log(tag: .success, "\(result.label): Score of \(result.score)")
+            return result.label
+        } catch let error {
+            Logger.log(tag: .error, "Notam could not be categorized: \(error)")
             return nil
         }
-        
-        Logger.log(tag: .success, "Notam successfully categorized")
-        Logger.log(tag: .success, "\(result.label): Score of \(result.score)")
-        
-        return result.label
     }
 }

@@ -15,9 +15,8 @@ class EvanModel: MLModelNotamDecoder {
     var tokenizer: (any Tokenizer)? = nil
     
     let modelName = "distilbert-base-uncased"
-    private let inputIdsSize = (1, 128)
-    private let attentionMaskSize = (1, 128)
-    private let outputSize = (1, 479)
+    let inputSize = (1, 128)
+    let outputSize = (1, 479)
     
     @MainActor
     static var shared: any NotamDecoder = EvanModel()
@@ -33,10 +32,19 @@ class EvanModel: MLModelNotamDecoder {
         }
     }
     
-    func categorize(_ input: String) -> InferenceResult? {
+    func importTokenizer() async {
+        do {
+            tokenizer = try await AutoTokenizer.from(pretrained: modelName)
+            Logger.log(tag: .success, "Successfully instantiated tokenizer")
+        } catch {
+            Logger.log(tag: .error, "TOKENIZER COULD NOT BE INSTANTIATED")
+        }
+    }
+    
+    func categorize(_ input: String) throws -> InferenceResult {
         guard let model else {
             Logger.log(tag: .error, "EVAN DISTILBERT MODEL NOT INSTANTIATED::CAN'T CATEGORIZE")
-            return nil
+            throw MLError.VoidModel
         }
         
         do {
@@ -46,75 +54,58 @@ class EvanModel: MLModelNotamDecoder {
             return convertOutputToInference(output.var_411)
         } catch let error {
             Logger.log(tag: .error, "EVAN DISTILBERT MODEL COULD NOT CATEGORIZE: \(error)")
-            return nil
+            throw error
         }
     }
     
     func convertStringToMLArray(_ input: String) throws -> (MLMultiArray, MLMultiArray) {
-        let inputIds = tokenize(input, dimensions: inputIdsSize)
-        let attentionMask = createAttentionMask()
-        
-        guard let inputIds, let attentionMask else {
-            Logger.log(tag: .error, "EITHER INPUTIDS OR ATTENTIONMASK NIL: COULD PROCESS INPUT")
-            throw MLError.ProcessingError
-        }
-        return (inputIds, attentionMask)
-    }
-    
-    func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult {
-        return InferenceResult(score: 0, label: "XX")
-    }
-    
-    func importTokenizer() async {
-        do {
-            tokenizer = try await AutoTokenizer.from(pretrained: modelName)
-        } catch {
-            Logger.log(tag: .error, "TOKENIZER COULD NOT BE INSTANTIATED")
-        }
-    }
-    
-    func tokenize(_ input: String, dimensions: (Int, Int)) -> MLMultiArray? {
         guard let tokenizer else {
             Logger.log(tag: .error, "TOKENIZER NOT INSTANTIATED")
-            return nil
+            throw MLError.VoidTokenizer
         }
         
-        guard let multiArray = try? MLMultiArray(shape: [dimensions.0, dimensions.1] as [NSNumber],
+        guard let tokensArray = try? MLMultiArray(shape: [inputSize.0, inputSize.1] as [NSNumber],
                                                  dataType: .float32) else {
             Logger.log(tag: .error, "INPUTIDS MULTIARRAY COULD NOT BE INSTANTIATED")
-            return nil
+            throw MLError.ProcessingError
+        }
+        
+        guard let maskArray = try? MLMultiArray(shape: [inputSize.0, inputSize.1] as [NSNumber],
+                                                 dataType: .float32) else {
+            Logger.log(tag: .error, "ATTENTION MASK MULTIARRAY COULD NOT BE INSTANTIATED")
+            throw MLError.ProcessingError
         }
         
         let encoding = tokenizer.encode(text: input)
+        let encodingSize = encoding.count
+        Logger.log(tag: .success, "Successfully created tokenized encoding")
+
+        if encodingSize > inputSize.1 { Logger.log(tag: .warning, "INPUT STRING TOO LONG FOR MODEL'S ARRAY INPUT: CATEGORIZATION MAY SUFFER ISSUES") }
         
-        for (index, value) in encoding.enumerated() {
-            if (index >= dimensions.1) {
-                Logger.log(tag: .warning, "INPUT STRING TOO LONG FOR MODEL'S ARRAY INPUT: CATEGORIZATION MAY SUFFER ISSUES")
-                break
+        for index in 0 ..< inputSize.1 {
+            if index < encodingSize {
+                tokensArray[index] = NSNumber(value: encoding[index])
+                maskArray[index] = 1
+            } else {
+                maskArray[index] = 0
             }
-            multiArray[index] = NSNumber(value: value)
         }
         
-        return multiArray
+        Logger.log(tag: .success, "Succesfully processed input string")
+        return (tokensArray, maskArray)
     }
     
-    /* TODO: The attention mask should tell you which of the tokens in the input_ids array
-     * TODO: should actually be considered. 1 means yes, 0 means no.
-     * TODO: At the moment, this returns entirely 1s. It needs to be modified so that it returns
-     * TODO: an accurate masking.
-     */
-    
-    func createAttentionMask() -> MLMultiArray? {
-        guard let multiArray = try? MLMultiArray(shape: [attentionMaskSize.0, attentionMaskSize.1] as [NSNumber],
-                                                 dataType: .float32) else {
-            Logger.log(tag: .error, "ATTENTION MASK MULTIARRAY COULD NOT BE INSTANTIATED")
-            return nil
-        }
+    func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult {
+        var maxVal: Float32 = Float.greatestFiniteMagnitude * -1
+        var predIndex: Int
         
-        for index in 0..<attentionMaskSize.1 {
-            multiArray[index] = 1
+        for index in 0 ..< outputSize.1 {
+            if (output[index].floatValue > maxVal) {
+                maxVal = output[index].floatValue
+                predIndex = index
+            }
         }
-        
-        return multiArray
+        // find label at predIndex
+        return InferenceResult(score: maxVal, label: "XX")
     }
 }

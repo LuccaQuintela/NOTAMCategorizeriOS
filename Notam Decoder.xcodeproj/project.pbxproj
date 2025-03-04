@@ -10,8 +10,7 @@
 		19528F17AED67D580135DC24 /* Pods_Notam_Decoder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26987A090574A5372FA12B /* Pods_Notam_Decoder.framework */; };
 		4F3170D7B12BCF52B9DB218E /* Pods_Notam_Decoder_Notam_DecoderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C38307C3462BBABE42EF2B5 /* Pods_Notam_Decoder_Notam_DecoderUITests.framework */; };
 		6997D270B8C4D316FEC12739 /* Pods_Notam_DecoderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98D85B0016576963057560 /* Pods_Notam_DecoderTests.framework */; };
-		7C872EFA2D6FF97500357767 /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = 7C872EF92D6FF97500357767 /* Transformers */; };
-		7C872EFC2D6FF97500357767 /* hub-cli in Frameworks */ = {isa = PBXBuildFile; productRef = 7C872EFB2D6FF97500357767 /* hub-cli */; };
+		7C82C6B02D7257FC008EBA2B /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = 7C82C6AF2D7257FC008EBA2B /* Transformers */; };
 		7C872EFE2D6FF97500357767 /* transformers in Frameworks */ = {isa = PBXBuildFile; productRef = 7C872EFD2D6FF97500357767 /* transformers */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C872EFC2D6FF97500357767 /* hub-cli in Frameworks */,
-				7C872EFA2D6FF97500357767 /* Transformers in Frameworks */,
+				7C82C6B02D7257FC008EBA2B /* Transformers in Frameworks */,
 				7C872EFE2D6FF97500357767 /* transformers in Frameworks */,
 				19528F17AED67D580135DC24 /* Pods_Notam_Decoder.framework in Frameworks */,
 			);
@@ -243,7 +241,7 @@
 			mainGroup = 7C19B1552CED1E570090C339;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				7C872EF82D6FF97500357767 /* XCRemoteSwiftPackageReference "swift-transformers" */,
+				7CF8635C2D769556008FDC3F /* XCRemoteSwiftPackageReference "swift-transformers" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C19B15F2CED1E570090C339 /* Products */;
@@ -541,6 +539,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = NO;
+				MERGED_BINARY_TYPE = none;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -588,6 +588,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				MERGEABLE_LIBRARY = NO;
+				MERGED_BINARY_TYPE = none;
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.Notam-Decoder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -743,6 +745,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7C82C6AE2D7257FC008EBA2B /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.17;
+			};
+		};
 		7C872EF82D6FF97500357767 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/huggingface/swift-transformers";
@@ -751,18 +761,21 @@
 				minimumVersion = 0.1.17;
 			};
 		};
+		7CF8635C2D769556008FDC3F /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.18;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7C872EF92D6FF97500357767 /* Transformers */ = {
+		7C82C6AF2D7257FC008EBA2B /* Transformers */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7C872EF82D6FF97500357767 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			package = 7C82C6AE2D7257FC008EBA2B /* XCRemoteSwiftPackageReference "swift-transformers" */;
 			productName = Transformers;
-		};
-		7C872EFB2D6FF97500357767 /* hub-cli */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C872EF82D6FF97500357767 /* XCRemoteSwiftPackageReference "swift-transformers" */;
-			productName = "hub-cli";
 		};
 		7C872EFD2D6FF97500357767 /* transformers */ = {
 			isa = XCSwiftPackageProductDependency;
