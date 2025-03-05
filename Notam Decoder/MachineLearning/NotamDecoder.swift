@@ -23,9 +23,10 @@ protocol MLModelNotamDecoder: NotamDecoder {
     var modelName: String { get }
     var inputSize: (Int, Int) { get }
     var outputSize: (Int, Int) { get }
+    var qcodes: [String]? { get }
     
     func convertStringToMLArray(_ input: String) throws -> (MLMultiArray, MLMultiArray)
-    func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult
+    func convertOutputToInference(_ output: MLMultiArray) throws -> InferenceResult
 }
 
 protocol PTNotamDecoder: NotamDecoder {
@@ -60,4 +61,5 @@ enum MLError: Error {
     case VoidTokenizer
     case ProcessingError
     case VoidModel
+    case VoidLabels
 }

@@ -85,22 +85,20 @@
 //        let remove: Set<Character> = ["\n"]
 //        encodedInput.removeAll(where: { remove.contains($0) })
 //        
-////        guard let subjectOutput = subjectModule.predict(text: encodedInput) else {
-////            Logger.log(tag: .error, "Subject outputs could not be predicted")
-////            isRunning = false
-////            return nil
-////        }
-////        
-////        // TO-DO: Paste subject into correct spot before sending whole notam back into next model
-////        
-////        
-////        guard let completeOutput = statusModule.predict(text: input) else {
-////            Logger.log(tag: .error, "Status outputs could not be predicted")
-////            isRunning = false
-////            return nil
-////        }
+//        guard let subjectOutput = subjectModule.predict(text: encodedInput) else {
+//            Logger.log(tag: .error, "Subject outputs could not be predicted")
+//            isRunning = false
+//            return nil
+//        }
+//        
+//        
+//        guard let completeOutput = statusModule.predict(text: input) else {
+//            Logger.log(tag: .error, "Status outputs could not be predicted")
+//            isRunning = false
+//            return nil
+//        }
 //        isRunning = false
-////        topK(scores: completeOutput, labels: subjectLabels)
+//        topK(scores: completeOutput, labels: subjectLabels)
 //        return nil
 //    }
 //    

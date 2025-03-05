@@ -18,17 +18,32 @@ class EvanModel: MLModelNotamDecoder {
     let inputSize = (1, 128)
     let outputSize = (1, 479)
     
+    let qcodes: [String]?
+    
     @MainActor
     static var shared: any NotamDecoder = EvanModel()
     
     @MainActor
     private init() {
-        do {
-            model = try Evan_DistilBERT(configuration: .init())
-            Task { await importTokenizer() }
-        } catch {
-            Logger.log(tag: .error, "EVAN DISTILBERT MODEL COULD NOT BE INSTANTIATED")
+        guard let filePath = Bundle.main.path(forResource: "EvanModelQCodes", ofType: "csv") else {
+            Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD EVAN MODEL Q CODES")
             model = nil
+            qcodes = nil
+            return
+        }
+        
+        do {
+            let labels = try String(contentsOfFile: filePath, encoding: .utf8)
+            Logger.log(tag: .success, "EvanModel Q Codes successfully loaded")
+            model = try Evan_DistilBERT(configuration: .init())
+            Logger.log(tag: .success, "Evan_DistilBERT model successfully initialized")
+            qcodes = labels.components(separatedBy: .newlines)
+            Task { await importTokenizer() }
+        }
+        catch let error {
+            model = nil
+            qcodes = nil
+            Logger.log(tag: .error, "EvanModel Instantiation Error: \(error) - \(error.localizedDescription)")
         }
     }
     
@@ -51,7 +66,7 @@ class EvanModel: MLModelNotamDecoder {
             let (inputIds, attentionMask) = try convertStringToMLArray(input)
             let processedInput = Evan_DistilBERTInput(input_ids: inputIds, attention_mask: attentionMask)
             let output = try model.prediction(input: processedInput)
-            return convertOutputToInference(output.var_411)
+            return try convertOutputToInference(output.var_411)
         } catch let error {
             Logger.log(tag: .error, "EVAN DISTILBERT MODEL COULD NOT CATEGORIZE: \(error)")
             throw error
@@ -95,17 +110,23 @@ class EvanModel: MLModelNotamDecoder {
         return (tokensArray, maskArray)
     }
     
-    func convertOutputToInference(_ output: MLMultiArray) -> InferenceResult {
+    func convertOutputToInference(_ output: MLMultiArray) throws -> InferenceResult {
+        guard let qcodes else {
+            Logger.log(tag: .error, "QCodes are nil, cannot convert output")
+            throw MLError.VoidLabels
+        }
+        
         var maxVal: Float32 = Float.greatestFiniteMagnitude * -1
-        var predIndex: Int
+        var predictionIndex: Int = 0
         
         for index in 0 ..< outputSize.1 {
             if (output[index].floatValue > maxVal) {
                 maxVal = output[index].floatValue
-                predIndex = index
+                predictionIndex = index
             }
         }
-        // find label at predIndex
-        return InferenceResult(score: maxVal, label: "XX")
+        
+        let label = qcodes[predictionIndex]
+        return InferenceResult(score: maxVal, label: label)
     }
 }
