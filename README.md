@@ -10,18 +10,36 @@ Model files can easily exceed the 100 MB maximum file size limit that git impose
 
 ### Step 1: Install 
 
-On your terminal, run `brew install git-lfs`. If you don't have HomeBrew installed, read documentation [here](https://docs.brew.sh/).
+On your terminal, run:
+
+```zsh 
+brew install git-lfs
+``` 
+
+If you don't have HomeBrew installed, read documentation [here](https://docs.brew.sh/).
 
 ### Step 2: Pulling Large Files
 
 Run `git clone https://github.com/LuccaQuintela/NOTAMCategorizeriOS` like you normally would to pull in everything in the normal git repo. 
 
-Next, you need to run `git lfs pull` to fetch all the larger files. Also run this when there's been changes to the large files. 
+Next, you need to run:
+
+```zsh
+git lfs pull
+``` 
+
+This fetches all the larger files. Also run this when there's been changes to the large files. 
 
 ### Adding your own large files
 
 If you choose to add something to repo that needs to be added through Large File Storage, you need to make sure that `git-lfs` is tracking that file. To see what files are currently being tracked, you can check `.gitattributes`. To add files to it, you can either run `git lfs track "[FILE]"`, or add it to `.gitattributes` manually. 
 
-Afterwards, it should track those files automatically when added to the staging area, but if you would like to double check, run `git lfs ls-files` to see what files are currently being tracked. 
+Afterwards, it should track those files automatically when added to the staging area, but if you would like to double check, run: 
+
+```zsh
+git lfs ls-files
+```
+
+This will show what files are currently being tracked by `git-lfs`. 
 
 If you want any more informaiton, the documenation for `git-lfs` can be found [here](https://git-lfs.com/).
