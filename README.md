@@ -1,11 +1,27 @@
-In order to run this properly you need to make sure you've done the following:
-- Install Ruby
-- Use ruby's gem terminal command to install cocoapods 
-- Use cocoapods to install the libtorch framework, podfiles are already included in the git repo that direct the install process
-- Make sure your Native Apple Clang++ compiler works up until C++17
+# Note 
 
-For me personally, the simulator worked until I added the LibTorch framework and then it would cause a bunch of errors. If you want to see the app working you need to attach a physical iOS device to your mac. This should prevent team dependency and prvosioning issues as well as build errors. 
-This will involve trusting yourself as a developer on your phone in settings in order to work and you may also need to turn your Apple ID into a free developer account, depending on how finicky apple decides to be in that moment. 
+Please make your own branch rather than us all merging to main. 
 
-Some of the model files are too big to be added to the git repo normally, therefore you will also need to make sure that git lfs is installed. You can use homebrew for this. 
-After that, you need to make sure that when you clone in this project, or anytime you call git pull and there's been a change with the actual models, you also call git lfs pull to pull in the larger files.
+Also if you have a windows or linux, this probably will not run on your machine. 
+
+# Instructions
+
+Model files can easily exceed the 100 MB maximum file size limit that git imposes. To store and pull bigger files, we need to use Git Large File Storage. 
+
+### Step 1: Install 
+
+On your terminal, run `brew install git-lfs`. If you don't have HomeBrew installed, read documentation [here](https://docs.brew.sh/).
+
+### Step 2: Pulling Large Files
+
+Run `git clone https://github.com/LuccaQuintela/NOTAMCategorizeriOS` like you normally would to pull in everything in the normal git repo. 
+
+Next, you need to run `git lfs pull` to fetch all the larger files. Also run this when there's been changes to the large files. 
+
+### Adding your own large files
+
+If you choose to add something to repo that needs to be added through Large File Storage, you need to make sure that `git-lfs` is tracking that file. To see what files are currently being tracked, you can check `.gitattributes`. To add files to it, you can either run `git lfs track "[FILE]"`, or add it to `.gitattributes` manually. 
+
+Afterwards, it should track those files automatically when added to the staging area, but if you would like to double check, run `git lfs ls-files` to see what files are currently being tracked. 
+
+If you want any more informaiton, the documenation for `git-lfs` can be found [here](https://git-lfs.com/).

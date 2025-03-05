@@ -29,24 +29,6 @@ protocol MLModelNotamDecoder: NotamDecoder {
     func convertOutputToInference(_ output: MLMultiArray) throws -> InferenceResult
 }
 
-protocol PTNotamDecoder: NotamDecoder {
-    var isRunning: Bool { get set }
-    var subjectLabels: [String] { get set }
-    
-    func topK(scores: [NSNumber], labels: [String], count: Int) -> [InferenceResult]
-}
-
-protocol SequentialDecoder: PTNotamDecoder {
-    var subjectModule: NLPTorchModule { get set }
-    var statusModule: NLPTorchModule { get set }
-    var subjectLabels: [String] { get set }
-    var statusLabels: [String] { get }
-}
-
-protocol SingularDecoder: PTNotamDecoder {
-    var torchModule: NLPTorchModule { get set }
-}
-
 struct InferenceResult {
     let score: Float
     let label: String
