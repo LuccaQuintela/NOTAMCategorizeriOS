@@ -20,7 +20,13 @@ If you don't have HomeBrew installed, read documentation [here](https://docs.bre
 
 ### Step 2: Pulling Large Files
 
-Run `git clone https://github.com/LuccaQuintela/NOTAMCategorizeriOS` like you normally would to pull in everything in the normal git repo. 
+Run:
+
+```zsh
+git clone https://github.com/LuccaQuintela/NOTAMCategorizeriOS
+``` 
+
+like you normally would to pull in everything in the normal git repo. 
 
 Next, you need to run:
 
@@ -32,7 +38,14 @@ This fetches all the larger files. Also run this when there's been changes to th
 
 ### Adding your own large files
 
-If you choose to add something to repo that needs to be added through Large File Storage, you need to make sure that `git-lfs` is tracking that file. To see what files are currently being tracked, you can check `.gitattributes`. To add files to it, you can either run `git lfs track "[FILE]"`, or add it to `.gitattributes` manually. 
+If you choose to add something to repo that needs to be added through Large File Storage, you need to make sure that `git-lfs` is tracking that file. 
+To see what files are currently being tracked, you can check `.gitattributes`. To add files to it, you can run:
+
+```zsh 
+git lfs track "[FILE]"
+```
+ 
+Or you can also add it to `.gitattributes` manually. 
 
 Afterwards, it should track those files automatically when added to the staging area, but if you would like to double check, run: 
 
