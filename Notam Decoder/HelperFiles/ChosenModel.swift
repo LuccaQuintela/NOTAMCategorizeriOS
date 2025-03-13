@@ -10,7 +10,7 @@ import Foundation
 class ChosenModel {
     @MainActor
     static let shared: ChosenModel = ChosenModel()
-    private(set) var model: Model? = Model.SingleOutputDistilBERT
+    private(set) var model: Model = Model.SingleOutputDistilBERT
     
     @MainActor
     private init() {}
@@ -31,8 +31,6 @@ class ChosenModel {
             return MultiDistilBERTManager.shared
         case .MiniLM:
             return MiniLMManager.shared
-        case nil:
-            return nil
         }
     }
 }
