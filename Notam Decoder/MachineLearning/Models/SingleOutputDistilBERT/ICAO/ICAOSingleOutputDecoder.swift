@@ -10,14 +10,14 @@ import CoreML
 import Tokenizers
 
 class ICAOSingleOutputDecoder: SingularNotamDecoder {
-    typealias ModelType = FAASingleOutputDistilBERT
-    typealias ModelInputType = FAASingleOutputDistilBERTInput
-    let model: FAASingleOutputDistilBERT?
+    typealias ModelType = ICAOSingleOutputDistilBERT
+    typealias ModelInputType = ICAOSingleOutputDistilBERTInput
+    let model: ICAOSingleOutputDistilBERT?
     var tokenizer: (any Tokenizer)? = nil
     
     var modelName = "distilbert-base-uncased"
     let inputSize = (1, 512)
-    let outputSize = (1, 227)
+    let outputSize = (1, 1004)
     
     let qcodes: [String]?
     
