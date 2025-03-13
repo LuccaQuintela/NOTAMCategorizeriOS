@@ -1,0 +1,14 @@
+# Ignore the Pods directory (where CocoaPods stores frameworks)
+Pods/
+
+# Make sure the Podfile and Podfile.lock are NOT ignored
+!Podfile
+!Podfile.lock
+
+# Ignore Swift Package Manager build artifacts
+.build/
+.swiftpm/
+
+# Ignore Xcode User-Specific Files
+xcuserdata/
+DerivedData/

@@ -1,0 +1,50 @@
+*.mlmodel filter=lfs diff=lfs merge=lfs -text
+*.mlpackage filter=lfs diff=lfs merge=lfs -text
+*.mlpackage/** filter=lfs diff=lfs merge=lfs -text
+weight.bin filter=lfs diff=lfs merge=lfs -text
+Manifest.json filter=lfs diff=lfs merge=lfs -text
+
+Evan_DistilBERT filter=lfs diff=lfs merge=lfs -text
+Evan_DistilBERT/** filter=lfs diff=lfs merge=lfs -text
+Evan_DistilBERT/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+Evan_DistilBERT/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+FAAStatusMiniLM.mlpackage filter=lfs diff=lfs merge=lfs -text
+FAAStatusMiniLM.mlpackage/** filter=lfs diff=lfs merge=lfs -text
+FAAStatusMiniLM.mlpackage/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+FAAStatusMiniLM.mlpackage/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+FAASubjectMiniLM filter=lfs diff=lfs merge=lfs -text
+FAASubjectMiniLM/** filter=lfs diff=lfs merge=lfs -text
+FAASubjectMiniLM/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+FAASubjectMiniLM/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+ICAOStatusMiniLM filter=lfs diff=lfs merge=lfs -text
+ICAOStatusMiniLM/** filter=lfs diff=lfs merge=lfs -text
+ICAOStatusMiniLM/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+ICAOStatusMiniLM/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+ICAOSubjectMiniLM filter=lfs diff=lfs merge=lfs -text
+ICAOSubjectMiniLM/** filter=lfs diff=lfs merge=lfs -text
+ICAOSubjectMiniLM/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+ICAOSubjectMiniLM/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+FAAMultiOutputDistilBERT filter=lfs diff=lfs merge=lfs -text
+FAAMultiOutputDistilBERT/** filter=lfs diff=lfs merge=lfs -text
+FAAMultiOutputDistilBERT/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+FAAMultiOutputDistilBERT/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+ICAOMultiOutputDistilBERT filter=lfs diff=lfs merge=lfs -text
+ICAOMultiOutputDistilBERT/** filter=lfs diff=lfs merge=lfs -text
+ICAOMultiOutputDistilBERT/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+ICAOMultiOutputDistilBERT/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+FAASingleOutputDistilBERT filter=lfs diff=lfs merge=lfs -text
+FAASingleOutputDistilBERT/** filter=lfs diff=lfs merge=lfs -text
+FAASingleOutputDistilBERT/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+FAASingleOutputDistilBERT/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
+
+ICAOSingleOutputDistilBERT filter=lfs diff=lfs merge=lfs -text
+ICAOSingleOutputDistilBERT/** filter=lfs diff=lfs merge=lfs -text
+ICAOSingleOutputDistilBERT/Data/com.apple.CoreML/** filter=lfs diff=lfs merge=lfs -text
+ICAOSingleOutputDistilBERT/Data/com.apple.CoreML/weights/weight.bin filter=lfs diff=lfs merge=lfs -text
