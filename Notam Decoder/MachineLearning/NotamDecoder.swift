@@ -80,13 +80,13 @@ extension NotamDecoder {
         }
         
         guard let tokensArray = try? MLMultiArray(shape: [inputSize.0, inputSize.1] as [NSNumber],
-                                                 dataType: .float32) else {
+                                                  dataType: .int32) else {
             Logger.log(tag: .error, "\(type(of: self)): INPUTIDS MULTIARRAY COULD NOT BE INSTANTIATED")
             throw MLError.ProcessingError
         }
         
         guard let maskArray = try? MLMultiArray(shape: [inputSize.0, inputSize.1] as [NSNumber],
-                                                 dataType: .float32) else {
+                                                dataType: .int32) else {
             Logger.log(tag: .error, "\(type(of: self)): ATTENTION MASK MULTIARRAY COULD NOT BE INSTANTIATED")
             throw MLError.ProcessingError
         }
@@ -100,9 +100,10 @@ extension NotamDecoder {
         for index in 0 ..< inputSize.1 {
             if index < encodingSize {
                 tokensArray[index] = NSNumber(value: encoding[index])
-                maskArray[index] = 1
+                maskArray[index] = NSNumber(value: 1)
             } else {
-                maskArray[index] = 0
+                maskArray[index] = NSNumber(value: 0)
+                tokensArray[index] = NSNumber(value: 0)
             }
         }
         
