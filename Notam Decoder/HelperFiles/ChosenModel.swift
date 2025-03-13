@@ -10,24 +10,27 @@ import Foundation
 class ChosenModel {
     @MainActor
     static let shared: ChosenModel = ChosenModel()
-    private(set) var model: Model? = Model.EvanModel
+    private(set) var model: Model? = Model.SingleOutputDistilBERT
     
     @MainActor
     private init() {}
     
-    public func switchModel(to newModel: Model?) {
+    public func switchModel(to newModel: Model) {
         model = newModel
         Logger.log(tag: .success, "Selected model successfully switched to \(String(describing: model))")
     }
     
     @MainActor
-    public func getModel() -> (any NotamDecoder)? {
+    public func getModel() -> (any DecoderManager)? {
         switch model {
-        case .FAASequentialDecoderMiniLM:
-            return EvanModel.shared
-//            return FAASequentialDecoderMiniLM.shared
         case .EvanModel:
-            return EvanModel.shared
+            return EvanModelManager.shared
+        case .SingleOutputDistilBERT:
+            return SingleDistilBERTManager.shared
+        case .MultiOutputDistilBERT:
+            return MultiDistilBERTManager.shared
+        case .MiniLM:
+            return MiniLMManager.shared
         case nil:
             return nil
         }

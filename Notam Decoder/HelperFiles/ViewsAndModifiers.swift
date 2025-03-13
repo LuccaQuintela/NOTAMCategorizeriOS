@@ -136,3 +136,31 @@ struct logoListFooter: View {
         }
     }
 }
+
+struct DropDownMenu: View {
+    @State private var selectedOption: String = "Single Output DistilBERT"
+    let options = ["Single Output DistilBERT", "Multi Output DistilBERT", "MiniLM", "Evan Model"]
+    
+    var model: Model {
+        switch selectedOption {
+        case "Single Output DistilBERT": return Model.SingleOutputDistilBERT
+        case "Multi Output DistilBERT": return Model.MultiOutputDistilBERT
+        case "MiniLM": return Model.MiniLM
+        case "Evan Model": return Model.EvanModel
+        default: return Model.EvanModel
+        }
+    }
+    
+    var body: some View {
+        Picker("Select a Model", selection:  $selectedOption) {
+            ForEach(options, id: \.self) { option in
+                Text(option).tag(option)
+            }
+        }
+        .pickerStyle(MenuPickerStyle())
+        .onChange(of: selectedOption) {
+            ChosenModel.shared.switchModel(to: model)
+            DecodedNotamViewModel.shared.updateModelSelection()
+        }
+    }
+}

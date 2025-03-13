@@ -9,7 +9,7 @@ import Foundation
 
 class DecodedNotamViewModel: ObservableObject {
     private let dataService: DatabaseManager
-    private var decoder: (any NotamDecoder)? = nil
+    private var decoder: (any DecoderManager)? = nil
     
     
     @MainActor
@@ -22,7 +22,7 @@ class DecodedNotamViewModel: ObservableObject {
     }
     
     @MainActor
-    private func updateModelSelection() {
+    func updateModelSelection() {
         decoder = ChosenModel.shared.getModel()
     }
     
@@ -31,9 +31,9 @@ class DecodedNotamViewModel: ObservableObject {
         dataService.insertNotam(notam)
     }
     
-    func categorize(_ notam: Notam) -> String? {        
+    func categorize(_ notam: Notam) -> String? {
         guard let decoder else {
-            Logger.log(tag: .error, "No Decoder Selected")
+            Logger.log(tag: .error, "Decoder selection nil: Can not categorize NOTAM")
             return nil
         }
         

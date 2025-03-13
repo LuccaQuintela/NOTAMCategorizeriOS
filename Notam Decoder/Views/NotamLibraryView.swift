@@ -46,24 +46,24 @@ struct NotamLibraryView: View {
     
     private let sampleNotamsICAO: [Notam] = [
         Notam("""
-              (A1747/24 NOTAMN
+              A1747/24 NOTAMN
               Q) LMMM/QMRAP/IV/NBO/A /000/999/3551N01429E005
               A) LMML 
               B) 2709070400 
               C) 2709070630
               E) RUNWAY 05/23 CLOSED FOR LANDING AND TAKE-OFF.
-              RUNWAY 05/23 NOT AVAILABLE IN CASE OF AN EMERGENCY.)
+              RUNWAY 05/23 NOT AVAILABLE IN CASE OF AN EMERGENCY.
               """),
         Notam("""
-              (C1012/24 NOTAMN
+              C1012/24 NOTAMN
               Q) EPWW/QNMAS/IV/BO /E /000/999/5208N01643E025
               A) EPWW 
               B) 2411290900 
               C) 2411291600
-              E) DVOR/DME CMP FREQ 114.500MHZ/CH92X U/S DUE TO MAINT.)
+              E) DVOR/DME CMP FREQ 114.500MHZ/CH92X U/S DUE TO MAINT.
               """),
         Notam("""
-              (A1470/24 NOTAMN
+              A1470/24 NOTAMN
               Q) LJLA/QAFTT/IV/BO /E /000/999/4611N01452E999
               A) LJLA 
               B) 2411280000 
@@ -71,17 +71,17 @@ struct NotamLibraryView: View {
               E) TRIGGER NOTAM - PERM AIRAC AMDT 138/2024 
               EFFECTIVE 28 NOV 2024 
               - CDR ROUTES
-              - SECSI FRA CHANGES)
+              - SECSI FRA CHANGES
               """),
         Notam("""
-              (N0059/24 NOTAMN
+              N0059/24 NOTAMN
               Q) SBAO/QWELW/IV/BO /W /000/450/0400S03141W070
               A) SBAO 
               B) 2409031105 
               C) 2410101945
               E) EXER (GERMAN AEROSPACE CENTER ATMOSPHERIC RESEARCH) WILL TAKE PLACE COORD 042655N0303631W THEN, A LONG THE CLOCKWISE ARC OF A CIRCLE OF 70NM RADIUS CENTRED ON 040000N0314100W TO 050856N0313309W
               F) GND 
-              G) FL450)
+              G) FL450
               """)
     ]
     

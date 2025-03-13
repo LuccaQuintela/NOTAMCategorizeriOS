@@ -9,9 +9,10 @@ import Foundation
 import CoreML
 import Tokenizers
 
-class EvanModel: MLModelNotamDecoder {
+class EvanModel: SingularNotamDecoder {
     typealias ModelType = Evan_DistilBERT
-    let model: Evan_DistilBERT?
+    typealias ModelInputType = Evan_DistilBERTInput
+    let model: ModelType?
     var tokenizer: (any Tokenizer)? = nil
     
     let modelName = "distilbert-base-uncased"
@@ -35,7 +36,7 @@ class EvanModel: MLModelNotamDecoder {
         do {
             let labels = try String(contentsOfFile: filePath, encoding: .utf8)
             Logger.log(tag: .success, "EvanModel Q Codes successfully loaded")
-            model = try Evan_DistilBERT(configuration: .init())
+            model = try ModelType(configuration: .init())
             Logger.log(tag: .success, "Evan_DistilBERT model successfully initialized")
             qcodes = labels.components(separatedBy: .newlines)
             Task { await importTokenizer() }
@@ -64,7 +65,7 @@ class EvanModel: MLModelNotamDecoder {
         
         do {
             let (inputIds, attentionMask) = try convertStringToMLArray(input)
-            let processedInput = Evan_DistilBERTInput(input_ids: inputIds, attention_mask: attentionMask)
+            let processedInput = ModelInputType(input_ids: inputIds, attention_mask: attentionMask)
             let output = try model.prediction(input: processedInput)
             return try convertOutputToInference(output.var_411)
         } catch let error {
