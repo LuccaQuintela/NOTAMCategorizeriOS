@@ -12,3 +12,6 @@ Pods/
 # Ignore Xcode User-Specific Files
 xcuserdata/
 DerivedData/
+
+# Ignore System Files
+.DS_Store

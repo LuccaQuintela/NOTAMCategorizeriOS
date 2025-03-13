@@ -12,7 +12,7 @@ import Tokenizers
 class ICAOSingleOutputDecoder: SingularNotamDecoder {
     typealias ModelType = ICAOSingleOutputDistilBERT
     typealias ModelInputType = ICAOSingleOutputDistilBERTInput
-    let model: ICAOSingleOutputDistilBERT?
+    let model: ModelType?
     var tokenizer: (any Tokenizer)? = nil
     
     var modelName = "distilbert-base-uncased"
