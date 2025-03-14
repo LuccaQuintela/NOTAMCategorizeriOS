@@ -23,10 +23,11 @@ class FAAMiniLMDecoder: SequentialNotamDecoder {
     let subjectOutputSize = (1, 103)
     let statusOutputSize = (1, 34)
     var tokenizer: (any Tokenizer)? = nil
-    let modelName = "nreimers/MiniLM-L6-H384-uncased"
+    let modelName = "distilbert-base-uncased"
     
     let subjects: [String]?
     let statuses: [String]?
+    var subjectLabel: String? = nil
     
     @MainActor
     static let shared: any NotamDecoder = FAAMiniLMDecoder()
@@ -71,51 +72,25 @@ class FAAMiniLMDecoder: SequentialNotamDecoder {
         }
     }
     
-    func importTokenizer() async {
-        do {
-            tokenizer = try await AutoTokenizer.from(pretrained: modelName)
-            Logger.log(tag: .success, "\(type(of: self)): Successfully instantiated tokenizer")
-        } catch {
-            Logger.log(tag: .error, "\(type(of: self)): TOKENIZER COULD NOT BE INSTANTIATED")
-        }
-    }
-    
     func categorize(_ input: String) throws -> InferenceResult {
         guard let subjectModel, let statusModel else {
             Logger.log(tag: .error, "\(type(of: self)): SUBJECT AND/OR STATUS MODEL NOT INSTANTIATED::CAN'T CATEGORIZE")
             throw MLError.VoidModel
         }
-        let subject: InferenceResult
+        
         do {
-            let (inputIds, attentionMask) = try convertStringToMLArray(input)
-            let processedInput = SubjectModelInputType(input_ids: inputIds, attention_mask: attentionMask)
-            let output = try subjectModel.prediction(input: processedInput)
-            subject = try convertOutputToInference(output.var_504, section: .Subject)
+            let (subjectInputIds, subjectAttentionMask) = try convertStringToMLArray(input)
+            let subjectProcessedInput = SubjectModelInputType(input_ids: subjectInputIds, attention_mask: subjectAttentionMask)
+            let subjectOutput = try subjectModel.prediction(input: subjectProcessedInput)
+            let subject = try convertOutputToInference(subjectOutput.var_504, section: .Subject).label
+            let transformedInput = transformInput(string: input, code: subject)
+            let (statusInputIds, statusAttentionMask) = try convertStringToMLArray(transformedInput)
+            let statusProcessedInput = StatusModelInputType(input_ids: statusInputIds, attention_mask: statusAttentionMask)
+            let statusOutput = try statusModel.prediction(input: statusProcessedInput)
+            return try convertOutputToInference(statusOutput.var_504, section: .Status)
         } catch let error {
             Logger.log(tag: .error, "\(type(of: self)) MODEL COULD NOT CATEGORIZE: \(error)")
             throw error
         }
-        
-        return subject
-    }
-    
-    func convertOutputToInference(_ output: MLMultiArray, section: QCodeSection) throws -> InferenceResult {
-        guard let subjects, let statuses else {
-            Logger.log(tag: .error, "\(type(of: self)): subjects and/or statuses are nil, cannot convert output")
-            throw MLError.VoidLabels
-        }
-        
-        var maxVal: Float32 = Float.greatestFiniteMagnitude * -1
-        var predictionIndex: Int = 0
-        let outputSize = section == .Subject ? subjectOutputSize.1 : statusOutputSize.1
-        for index in 0 ..< outputSize {
-            if (output[index].floatValue > maxVal) {
-                maxVal = output[index].floatValue
-                predictionIndex = index
-            }
-        }
-        
-        let label = section == .Subject ? subjects[predictionIndex] : statuses[predictionIndex]
-        return InferenceResult(score: maxVal, label: label)
     }
 }

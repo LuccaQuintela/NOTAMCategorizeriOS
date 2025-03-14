@@ -48,15 +48,6 @@ class ICAOSingleOutputDecoder: SingularNotamDecoder {
         }
     }
     
-    func importTokenizer() async {
-        do {
-            tokenizer = try await AutoTokenizer.from(pretrained: modelName)
-            Logger.log(tag: .success, "\(type(of: self)): Successfully instantiated tokenizer")
-        } catch {
-            Logger.log(tag: .error, "\(type(of: self)): TOKENIZER COULD NOT BE INSTANTIATED")
-        }
-    }
-    
     func categorize(_ input: String) throws -> InferenceResult {
         guard let model else {
             Logger.log(tag: .error, "\(type(of: self)) MODEL NOT INSTANTIATED::CAN'T CATEGORIZE")

@@ -9,7 +9,7 @@ import Foundation
 import CoreML
 import Tokenizers
 
-class FAAMultiOutputDecoder: SingularNotamDecoder {
+class FAAMultiOutputDecoder: MultiNotamDecoder {
     typealias ModelType = FAAMultiOutputDistilBERT
     typealias ModelInputType = FAAMultiOutputDistilBERTInput
     let model: ModelType?
@@ -17,9 +17,10 @@ class FAAMultiOutputDecoder: SingularNotamDecoder {
     
     var modelName = "distilbert-base-uncased"
     let inputSize = (1, 128)
-    let outputSize = (128, 768)
+    let subjectOutputSize = (1, 103)
+    let statusOutputSize = (1, 34)
     
-    let qcodes: [String]?
+    let subjects: [String]?
     let statuses: [String]?
     
     @MainActor
@@ -30,7 +31,7 @@ class FAAMultiOutputDecoder: SingularNotamDecoder {
         guard let subjectFilePath = Bundle.main.path(forResource: "FAAMOD_Subject_Labels", ofType: "txt") else {
             Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD \(type(of: self)) SUBJECT LABELS")
             model = nil
-            qcodes = nil
+            subjects = nil
             statuses = nil
             return
         }
@@ -38,7 +39,7 @@ class FAAMultiOutputDecoder: SingularNotamDecoder {
         guard let statusFilePath = Bundle.main.path(forResource: "FAAMOD_Status_Labels", ofType: "txt") else {
             Logger.log(tag: .error, "CRITICAL ERROR: CANNOT LOAD \(type(of: self)) STATUS LABELS")
             model = nil
-            qcodes = nil
+            subjects = nil
             statuses = nil
             return
         }
@@ -49,24 +50,15 @@ class FAAMultiOutputDecoder: SingularNotamDecoder {
             Logger.log(tag: .success, "\(type(of: self)) Q-Codes successfully loaded")
             model = try ModelType(configuration: .init())
             Logger.log(tag: .success, "\(type(of: self)) model successfully initialized")
-            qcodes = subjectLabels.components(separatedBy: .newlines)
+            subjects = subjectLabels.components(separatedBy: .newlines)
             statuses = statusLabels.components(separatedBy: .newlines)
             Task { await importTokenizer() }
         }
         catch let error {
             model = nil
-            qcodes = nil
+            subjects = nil
             statuses = nil
             Logger.log(tag: .error, "\(type(of: self)) Instantiation Error: \(error) - \(error.localizedDescription)")
-        }
-    }
-    
-    func importTokenizer() async {
-        do {
-            tokenizer = try await AutoTokenizer.from(pretrained: modelName)
-            Logger.log(tag: .success, "\(type(of: self)): Successfully instantiated tokenizer")
-        } catch {
-            Logger.log(tag: .error, "\(type(of: self)): TOKENIZER COULD NOT BE INSTANTIATED")
         }
     }
     
@@ -80,15 +72,10 @@ class FAAMultiOutputDecoder: SingularNotamDecoder {
             let (inputIds, attentionMask) = try convertStringToMLArray(input)
             let processedInput = ModelInputType(input_ids: inputIds, attention_mask: attentionMask)
             let output = try model.prediction(input: processedInput)
-            return try convertOutputToInference(output.last_hidden_state)
+            return try convertOutputToInference(subject: output.last_hidden_state, status: output.last_hidden_state)
         } catch let error {
             Logger.log(tag: .error, "\(type(of: self)) MODEL COULD NOT CATEGORIZE: \(error)")
             throw error
         }
-    }
-    
-    // TODO: OVERRIDE OUTPUT CONVERSION
-    func convertOutputToInference(_ output: MLMultiArray) throws -> InferenceResult {
-        return InferenceResult(score: -1, label: "XXXX")
     }
 }
