@@ -58,7 +58,7 @@ This will show what files are currently being tracked by `git-lfs`.
 If you want any more informaiton, the documenation for `git-lfs` can be found [here](https://git-lfs.com/).
 
 # Models
-MultiOutputDistilBERT - Lindsey
+MultiOutputDistilBERT - Lindy
 
 SingleOutputDistilBERT - Evan
 
