@@ -59,5 +59,7 @@ If you want any more informaiton, the documenation for `git-lfs` can be found [h
 
 # Models
 MultiOutputDistilBERT - Lindsey
+
 SingleOutputDistilBERT - Evan
+
 MiniLM - Ainsley
